@@ -1,6 +1,7 @@
-# TypeScript Tutorial (Adapted from W3Schools, https://materi-fullstack-nfvh.vercel.app/)
+# TypeScript Tutorial
 
 This tutorial covers the basics of TypeScript programming language. The content is adapted from W3Schools.
+(Adapted from https://www.typescriptlang.org/, W3Schools, and https://materi-fullstack-nfvh.vercel.app/)
 
 ## Table of Contents
 1. [Introduction](#introduction)

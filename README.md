@@ -28,6 +28,9 @@ To start using TypeScript, follow these steps:
 
    ```bash
    npm install -g typescript
+   ```
+3. Playground
+https://www.typescriptlang.org/play
 
 ## Variables
 `var`

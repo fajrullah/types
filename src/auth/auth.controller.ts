@@ -1,4 +1,5 @@
-import { Body, Controller, HttpCode, HttpStatus, Post } from '@nestjs/common';
+import { Body, Controller, Get, HttpCode, HttpStatus, Post, UseGuards } from '@nestjs/common';
+import { AuthGuard } from './auth.guard';
 import { AuthService } from './auth.service';
 
 // auth/auth.controller.ts
@@ -16,5 +17,12 @@ export class AuthController {
   @Post('register')
   register(@Body() user: Record<string, any>) {
     return this.authService.registerUser(user);
+  }
+
+  // auth/auth.controller.ts
+  @UseGuards(AuthGuard)
+  @Get('profile')
+  async getProfile(): Promise<string> {
+    return 'this is protected route';
   }
 }

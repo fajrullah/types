@@ -42,4 +42,10 @@ export class AppController {
   async deleteMenu(@Param('id') id: number): Promise<void> {
     return await this.appService.deleteMenu(id);
   }
+
+  @Post('/producer')
+  async produceMessage(): Promise<void> {
+    return await this.appService.sendMessage('test-topic', 'Hello Kafka!');
+  }
+
 }

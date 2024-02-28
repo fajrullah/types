@@ -4,6 +4,9 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 // menggunakan Entitiy Menu
 import { Menu } from './entity/menu.entity';
+// src/app.service.ts
+// import kafka
+import { producer } from './kafka.config';
 
 @Injectable()
 export class AppService {
@@ -11,6 +14,16 @@ export class AppService {
     @InjectRepository(Menu)
     private readonly menuRepository: Repository<Menu>,
   ) {}
+  
+  async sendMessage(topic: string, message: string) {
+    await producer.connect()
+    await producer.send({
+        topic,
+        messages: [
+            { value: message }
+        ]
+      }).then(console.log)
+  }
 
   async getMenuById(id: number): Promise<Menu> {
     return await this.menuRepository.findOne({
